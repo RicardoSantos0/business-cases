@@ -1,0 +1,383 @@
+
+/* ------------------------------------------------------------------
+-----------------------GENERAL RULES -------------------------------------------------------------- ----*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Trajan-Sans-Pro, sans-serif;
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+h1 {
+    font-size: 4.8rem;
+    font-weight: normal;
+    text-align: center;
+}
+p {
+    font-size: 1.6rem;
+    line-height: 26px;
+    margin: 10px 0;
+}
+
+.container {
+    margin: auto;
+    position: relative;
+    max-width: 980px;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+
+
+/* ------------------------------------------------------------------
+-----------------------HEADER -------------------------------------------------------------- ----*/
+header {
+    background-color: white;
+}
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.heading h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.heading h1 span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #31C9A0;
+}
+
+.heading img {
+    width: 25px;
+    height: auto;
+}
+
+/* ------------------------------------------------------------------
+-----------------------TITLE -------------------------------------------------------------- ----*/
+
+.title {
+    margin: 45px 0;
+}
+
+.title h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.title .divide {
+    border-bottom: solid 1px #D6D6D6;
+    margin: 0 30%;
+}
+
+
+/* ------------------------------------------------------------------
+-----------------------FORM -------------------------------------------------------------- ----*/
+main {
+    background-color: white;
+    border: solid 1px #D6D6D6;
+}
+
+.form_info {
+    background-color: #31C9A0;
+    height: 60px; 
+
+    display: flex;
+    justify-content: center;    
+    flex-flow: column;
+
+    padding-left: 10%;
+    margin-bottom: 40px;
+}
+
+.form_info h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+    padding: 0;
+    padding-top: 10px;
+    margin: 0;
+}
+
+.form_info h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: white;
+    padding: 0;
+    margin: 0;
+
+}
+
+
+.form_section1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #282E40;
+    margin-bottom: 20px;
+    
+    grid-area: fsec1;
+}
+.form_section2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #282E40;
+    margin-bottom: 20px;
+    padding-top: 70px;
+    border-top: solid 1px #D6D6D6;
+    
+    grid-area: fsec2;
+}
+
+
+form {
+    display: grid;
+    grid-template-areas: 
+    "fsec1 fsec1 fsec1 fsec1 fsec1 fsec1"
+    "ct ct ct country country country"
+    "adults adults adults ms ms ms"
+    "comp comp comp agent agent agent"
+    "fsec2 fsec2 fsec2 fsec2 fsec2 fsec2"
+    "day day week week month month"
+    "weekdays weekdays weekdays weekend weekend weekend"
+    "rr rr rr ar ar ar"
+    "pc pc pc pnc pnc pnc"
+    "cb cb sr sr nps nps"
+    "lt lt lt dwl dwl dwl"
+    "adr adr adr tod tod tod"
+    "dc dc dc . . ."
+    ". . . . submit submit";
+    padding: 0 40px;
+    gap: 0 30px;
+}
+
+form label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #282E40 ;
+    margin: 5px 0;
+}
+form input, form select {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #282E40 ;
+    background-color: #F7F7F7;
+    border: solid 1.5px #D6D6D6;
+    height: 30px;
+    margin: 10px 0;
+}
+
+.customer_type {
+    grid-area: ct;
+}
+
+.country {
+    grid-area: country;
+}
+
+.number_of_adults {
+    grid-area: adults;
+}
+
+.market_segment {
+    grid-area: ms;
+}
+
+.company {
+    grid-area: comp;
+}
+
+.agent {
+    grid-area: agent;
+}
+
+.day {
+    grid-area: day;
+}
+
+.month {
+    grid-area: month;
+}
+
+.week {
+    grid-area: week;
+}
+
+.number_of_weekdays_in_stay {
+    grid-area: weekdays;
+}
+
+.number_of_weekend_days_in_stay {
+    grid-area: weekend;
+}
+
+.reserved_room {
+    grid-area: rr;
+}
+
+.assigned_room {
+    grid-area: ar;
+}
+
+.number_of_previous_cancellations {
+    grid-area: pc;
+}
+
+.number_of_previous_not_cancellations {
+    grid-area: pnc;
+}
+
+.changes_in_booking {
+    grid-area: cb;
+}
+
+.number_of_special_requests {
+    grid-area: sr;
+}
+
+.number_of_parking_spots {
+    grid-area: nps;
+}
+
+.lead_time {
+    grid-area: lt;
+}
+
+.days_in_waiting_list {
+    grid-area: dwl;
+}
+
+.adr {
+    grid-area: adr;
+}
+
+.type_of_deposit {
+    grid-area: tod;
+}
+
+.distribution_channel {
+    grid-area: dc;
+}
+
+input[type=number], select {
+    width: 100%;
+}
+
+.submit {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+
+    padding: 0 30px;
+    grid-area: submit;
+
+    background-color: #31C9A0;
+    border: none;
+}
+
+/* ------------------------------------------------------------------
+-----------------------ASIDE -------------------------------------------------------------- ----*/
+
+aside{
+    background-color: white;
+    border: solid 1px #D6D6D6;
+    height: 150px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+
+    position: fixed;
+    right: 15vw;
+}
+aside h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #282E40;
+    margin: 0
+}
+
+aside p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #282E40;
+    line-height: 13px;
+
+    border-bottom: solid 1px #D6D6D6;
+}
+
+aside .result {
+    padding-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 5rem;
+    font-weight: 600;
+    color: #31C9A0;
+    border: none;
+    align-self: center;
+}
+
+
+/* ------------------------------------------------------------------
+----------------------- FOOTER -------------------------------------------------------------- ----*/
+
+footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+}
+
+footer h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+footer h1 span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #31C9A0;
+}
+
+
+/* ------------------------------------------------------------------
+----------------------- STRUCTURE -------------------------------------------------------------- ----*/
+
+body {
+    background-color: #F7F7F7;
+}
+.content {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: 9fr 4fr;
+    gap: 20px;
+}
