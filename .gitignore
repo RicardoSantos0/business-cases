@@ -143,3 +143,5 @@ BC3_market_basket_analysis/CSV/complementary_relationships.csv
 BC3_market_basket_analysis/CSV/Substitute_relationships.csv
 BC3_market_basket_analysis.zip
 BC5_the_many_gbs_monstruosity/CSVs and the Goliath/df_treated.csv
+*.csv
+*.sav

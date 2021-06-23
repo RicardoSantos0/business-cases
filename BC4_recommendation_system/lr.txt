@@ -1,0 +1,39 @@
+#Store into ML pipeline
+#create backup copy 
+titanic = group_data.filter(group_data.tconst == 'tt0120338')
+
+#take titanic away
+pipeline_holder = group_data.filter(group_data.tconst != 'tt0120338')
+pipeline_holder = pipeline_holder.drop('avg(numVotes)', 'tconst')
+titanic = titanic.drop('avg(numVotes)', 'tconst')
+
+# Split the dataset randomly into 70% for training and 30% for testing. Passing a seed for deterministic behavior
+train, test = pipeline_holder.randomSplit([0.7, 0.3], seed = 0)
+print("We have %d training examples and %d test examples." % (train.count(), test.count()))
+
+
+#inserting in pipeline from class
+featuresCols = pipeline_holder.columns
+featuresCols.remove('avg(averageRating)')
+# This concatenates all feature columns into a single feature vector in a new column "rawFeatures" - there are no categoricals here.
+vectorAssembler = VectorAssembler(inputCols=featuresCols, outputCol="rawFeatures")
+
+# This identifies categorical features and indexes them.
+vectorIndexer = VectorIndexer(inputCol="rawFeatures", outputCol="features", maxCategories=4)
+# Takes the "features" column and learns to predict
+lr = LinearRegression(labelCol="avg(averageRating)")
+
+#set
+paramGrid = ParamGridBuilder()\
+    .addGrid(lr.fitIntercept, [True])\
+    .build()
+#We define an evaluation metric.  This tells CrossValidator how well we are doing by comparing the true labels with predictions.
+evaluator = RegressionEvaluator(metricName="rmse", labelCol=lr.getLabelCol(), predictionCol=lr.getPredictionCol())
+
+cv = CrossValidator(estimator=lr, evaluator=evaluator, estimatorParamMaps=paramGrid)
+
+#use pipeline to assemble model
+pipeline = Pipeline(stages=[vectorAssembler,vectorIndexer, cv])
+
+#giving error, don't know whiy exactly
+pipelineModel = pipeline.fit(train)
